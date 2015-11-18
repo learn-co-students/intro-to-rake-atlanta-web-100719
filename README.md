@@ -153,6 +153,8 @@ This creates a *task dependency*. Since our `Student.create_table` code would re
 Let's check out that `environment` task:
 
 ```ruby
+# in Rakefile
+
 task :environment do
   require_relative './config/environment'
 end
