@@ -238,3 +238,5 @@ We did it!
 
 
 
+
+<a href='https://learn.co/lessons/intro-to-rake' data-visibility='hidden'>View this lesson on Learn.co</a>
