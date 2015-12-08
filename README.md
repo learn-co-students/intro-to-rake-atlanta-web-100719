@@ -16,13 +16,13 @@ Rake allows us to define something called "Rake tasks" that execute these jobs. 
 
 Every program has some jobs that must be executed now and then. For example, the task of creating a database table, the task of making or maintaining certain files. Before Rake was invented, we would have to write scripts that accomplish these tasks in BASH, or we would have to make potentially confusing and arbitrary decisions about what segment of our Ruby program would be responsible for executing these tasks. 
 
-Writing scripts in BASH is tough, and BASH just isn't as powerful as Ruby. On the other hand, for each developer to make his or her own decisions about where to define and execute certain common tasks related to database or file maintenance is confusing. 
+Writing scripts in BASH is tough, and BASH just isn't as powerful as Ruby. On the other hand, for each developer to make his or her own decisions about where to define and execute certain common tasks related to databases or file maintenance is confusing. 
 
 Rake provides us a standard, conventional way to define and execute such tasks using Ruby. 
 
 ## Where did Rake Come From?
 
-In fact, the C community as the first to implement the pattern of writing all their recurring system maintenance tasks in a separate file. They called this file the MakeFile because it was generally used to gather all of the source files and make it into one compiled executable file. 
+In fact, the C community was the first to implement the pattern of writing all their recurring system maintenance tasks in a separate file. They called this file the MakeFile because it was generally used to gather all of the source files and make it into one compiled executable file. 
 
 Rake was later developed by [Jim Weirich](https://en.wikipedia.org/wiki/Jim_Weirich) as the task management tool for Ruby. 
 
@@ -178,7 +178,7 @@ Student.create(name: "Devon", grade: "11th")
 Student.create(name: "Sarah", grade: "10th")
 ```
 
-Then, we define a rake task that execute the code in this file. This task will also be namespaced under `db`:
+Then, we define a rake task that executes the code in this file. This task will also be namespaced under `db`:
 
 ```ruby
 desc 'seed the database with some dummy data'
@@ -238,5 +238,3 @@ We did it!
 
 
 
-
-<a href='https://learn.co/lessons/intro-to-rake' data-visibility='hidden'>View this lesson on Learn.co</a>
