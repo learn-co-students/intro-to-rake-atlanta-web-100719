@@ -107,7 +107,7 @@ end
 Now, to use either of our Rake tasks, we use the following syntax:
 
 ```bash
-rake greeting:hola
+rake greeting:hello
 hello from Rake!
 
 rake greeting:hola
