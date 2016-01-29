@@ -238,3 +238,5 @@ We did it!
 
 
 
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-rake' title='Intro to Rake'>Intro to Rake</a> on Learn.co and start learning to code for free.</p>
