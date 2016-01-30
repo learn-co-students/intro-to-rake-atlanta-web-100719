@@ -48,7 +48,7 @@ end
 
 Now, in your terminal in the directory of this project, type:
 
-`rake hello`
+`rake greeting:hello`
 
 You should see the following outputted to your terminal:
 
@@ -239,4 +239,4 @@ We did it!
 
 
 
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-rake' title='Intro to Rake'>Intro to Rake</a> on Learn.co and start learning to code for free.</p>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-rake'>Intro to Rake</a> on Learn.co and start learning to code for free.</p>
