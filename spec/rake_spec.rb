@@ -40,6 +40,29 @@ describe "Rakefile" do
         sql = "SELECT name FROM sqlite_master WHERE type='table'ORDER BY name;"
         expect(DB[:conn].execute(sql).first).to include("students")
       end
+
+      it 'create the students table in the database' do
+        Rake::Task['db:migrate'].invoke
+        sql = "SELECT name FROM sqlite_master WHERE type='table'ORDER BY name;"
+        expect(DB[:conn].execute(sql).first).to include('students')
+      end
+    end
+
+    describe 'db:seed' do
+      before(:each) do
+        clear_database
+        recreate_table
+      end
+
+      it 'seeds the database with dummy data from a seed file' do
+        Rake::Task['db:seed'].invoke
+        sql = 'select * from students;'
+        dummy_data = DB[:conn].execute(sql)
+        expect(dummy_data.length).to eq(5)
+        expect(dummy_data.first[0]).to eq(1)
+        expect(dummy_data[1][1]).to eq('April')
+        expect(dummy_data[4][2]).to eq('10th')
+      end
     end
 
     describe 'db:seed' do
