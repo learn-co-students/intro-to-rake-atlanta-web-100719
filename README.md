@@ -215,7 +215,7 @@ Now, provided we ran `rake db:migrate` and `rake db:seed`, we can drop into our 
 rake console
 ```
 
-This should bring up the following in the your terminal:
+This should bring up the following in your terminal:
 
 ```bash
 [1] pry(main)>
