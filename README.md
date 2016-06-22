@@ -91,8 +91,8 @@ end
 Now, let's namespace both `hello` and `hola` under the `greeting` heading:
 
 ```ruby
-desc 'outputs hello to the terminal'
 namespace :greeting do 
+desc 'outputs hello to the terminal'
   task :hello do 
     puts "hello from Rake!"
   end
@@ -240,3 +240,5 @@ We did it!
 
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-rake'>Intro to Rake</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/intro-to-rake'>Intro to Rake</a> on Learn.co and start learning to code for free.</p>
