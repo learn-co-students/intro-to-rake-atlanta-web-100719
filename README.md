@@ -48,7 +48,7 @@ end
 
 Now, in your terminal in the directory of this project, type:
 
-`rake greeting:hello`
+`rake hello`
 
 You should see the following outputted to your terminal:
 
