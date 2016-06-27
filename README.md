@@ -234,11 +234,4 @@ Let's check to see that we did in fact successfully migrate and seed our databas
 
 We did it!
 
-
-
-
-
-
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-rake'>Intro to Rake</a> on Learn.co and start learning to code for free.</p>
-
 <p class='util--hide'>View <a href='https://learn.co/lessons/intro-to-rake'>Intro to Rake</a> on Learn.co and start learning to code for free.</p>
