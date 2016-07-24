@@ -52,7 +52,7 @@ Now, in your terminal in the directory of this project, type:
 
 You should see the following outputted to your terminal:
 
-```ruby
+```bash
 hello from Rake!
 ```
 
