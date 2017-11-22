@@ -160,6 +160,8 @@ task :environment do
 end
 ```
 
+After adding our environemnt task, running `rake db:migrate` should create our students table.
+
 ### `rake db:seed`
 
 Another task you will become familiar with is the `seed` task. This task is responsible for "seeding" our database with some dummy data. 
