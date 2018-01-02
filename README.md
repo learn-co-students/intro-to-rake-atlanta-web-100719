@@ -16,13 +16,13 @@ Rake allows us to define something called "Rake tasks" that execute these jobs. 
 
 Every program has some jobs that must be executed now and then. For example, the task of creating a database table, the task of making or maintaining certain files. Before Rake was invented, we would have to write scripts that accomplish these tasks in BASH, or we would have to make potentially confusing and arbitrary decisions about what segment of our Ruby program would be responsible for executing these tasks. 
 
-Writing scripts in BASH is tough, and BASH just isn't as powerful as Ruby. On the other hand, for each developer to make his or her own decisions about where to define and execute certain common tasks related to database or file maintenance is confusing. 
+Writing scripts in BASH is tough, and BASH just isn't as powerful as Ruby. On the other hand, for each developer to make his or her own decisions about where to define and execute certain common tasks related to databases or file maintenance is confusing. 
 
 Rake provides us a standard, conventional way to define and execute such tasks using Ruby. 
 
 ## Where did Rake Come From?
 
-In fact, the C community as the first to implement the pattern of writing all their recurring system maintenance tasks in a separate file. They called this file the MakeFile because it was generally used to gather all of the source files and make it into one compiled executable file. 
+In fact, the C community was the first to implement the pattern of writing all their recurring system maintenance tasks in a separate file. They called this file the MakeFile because it was generally used to gather all of the source files and make it into one compiled executable file. 
 
 Rake was later developed by [Jim Weirich](https://en.wikipedia.org/wiki/Jim_Weirich) as the task management tool for Ruby. 
 
@@ -52,7 +52,7 @@ Now, in your terminal in the directory of this project, type:
 
 You should see the following outputted to your terminal:
 
-```ruby
+```bash
 hello from Rake!
 ```
 
@@ -91,8 +91,8 @@ end
 Now, let's namespace both `hello` and `hola` under the `greeting` heading:
 
 ```ruby
-desc 'outputs hello to the terminal'
 namespace :greeting do 
+desc 'outputs hello to the terminal'
   task :hello do 
     puts "hello from Rake!"
   end
@@ -107,7 +107,7 @@ end
 Now, to use either of our Rake tasks, we use the following syntax:
 
 ```bash
-rake greeting:hola
+rake greeting:hello
 hello from Rake!
 
 rake greeting:hola
@@ -129,15 +129,15 @@ We'll namespace this task under the `db` heading. This namespace will contain a 
 We'll call this task `migrate`, because it is a convention to say we are "migrating" our database by applying SQL statements that alter that database.
 
 ```ruby
-desc 'migrate changes to your database' 
-namespace :db do 
-  task :migrate => :environment do 
+namespace :db do
+  desc 'migrate changes to your database'
+  task :migrate => :environment do
     Student.create_table
   end
 end
 ```
 
-Now, if we run `rake db:migrate`, our database table will be created. 
+But, if we run `rake db:migrate` now, we're going to hit an error.
 
 #### Task Dependency
 
@@ -148,7 +148,7 @@ task :migrate => :environment do
 ...
 ```
 
-This creates a *task dependency*. Since our `Student.create_table` code would require access to the `config/environment.rb` file (which is where the student class and database are loaded), we need to give our task access to this file. We can do so by defining yet another Rake task that we can tell to run before the `migrate` task is run. 
+This creates a *task dependency*. Since our `Student.create_table` code would require access to the `config/environment.rb` file (which is where the student class and database are loaded), we need to give our task access to this file. In order to do that, we need to define yet another Rake task that we can tell to run before the `migrate` task is run. 
 
 Let's check out that `environment` task:
 
@@ -159,6 +159,8 @@ task :environment do
   require_relative './config/environment'
 end
 ```
+
+After adding our environemnt task, running `rake db:migrate` should create our students table.
 
 ### `rake db:seed`
 
@@ -178,14 +180,14 @@ Student.create(name: "Devon", grade: "11th")
 Student.create(name: "Sarah", grade: "10th")
 ```
 
-Then, we define a rake task that execute the code in this file. This task will also be namespaced under `db`:
+Then, we define a rake task that executes the code in this file. This task will also be namespaced under `db`:
 
 ```ruby
-desc 'seed the database with some dummy data'
 namespace :db do
 
   ...
-   
+  
+  desc 'seed the database with some dummy data'
   task :seed do 
     require_relative './db/seeds.rb'
   end
@@ -215,7 +217,7 @@ Now, provided we ran `rake db:migrate` and `rake db:seed`, we can drop into our 
 rake console
 ```
 
-This should bring up the following in the your terminal:
+This should bring up the following in your terminal:
 
 ```bash
 [1] pry(main)>
@@ -234,9 +236,4 @@ Let's check to see that we did in fact successfully migrate and seed our databas
 
 We did it!
 
-
-
-
-
-
-<a href='https://learn.co/lessons/intro-to-rake' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p class='util--hide'>View <a href='https://learn.co/lessons/intro-to-rake'>Intro to Rake</a> on Learn.co and start learning to code for free.</p>
