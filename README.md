@@ -137,7 +137,7 @@ namespace :db do
 end
 ```
 
-Now, if we run `rake db:migrate`, our database table will be created. 
+But, if we run `rake db:migrate` now, we're going to hit an error.
 
 #### Task Dependency
 
@@ -148,7 +148,7 @@ task :migrate => :environment do
 ...
 ```
 
-This creates a *task dependency*. Since our `Student.create_table` code would require access to the `config/environment.rb` file (which is where the student class and database are loaded), we need to give our task access to this file. We can do so by defining yet another Rake task that we can tell to run before the `migrate` task is run. 
+This creates a *task dependency*. Since our `Student.create_table` code would require access to the `config/environment.rb` file (which is where the student class and database are loaded), we need to give our task access to this file. In order to do that, we need to define yet another Rake task that we can tell to run before the `migrate` task is run. 
 
 Let's check out that `environment` task:
 
@@ -159,6 +159,8 @@ task :environment do
   require_relative './config/environment'
 end
 ```
+
+After adding our environemnt task, running `rake db:migrate` should create our students table.
 
 ### `rake db:seed`
 
