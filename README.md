@@ -160,7 +160,7 @@ task :environment do
 end
 ```
 
-After adding our environemnt task, running `rake db:migrate` should create our students table.
+After adding our environment task, running `rake db:migrate` should create our students table.
 
 ### `rake db:seed`
 
